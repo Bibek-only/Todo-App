@@ -1,10 +1,23 @@
 import mongoose from "mongoose";
 import {User} from "../model/exprort.model.js"
 import {Todo} from "../model/exprort.model.js"
+import zod from "zod"
 
 async function registerUser(req,res,next){
+
+    let userInfo = req.body;
+    console.log(userInfo);
+
     // zod schema for input validation
-    
+    const bodySchema = zod.object({
+        userName:zod.string(),
+        password: zod.string()
+    })
+    const isIPValid = bodySchema.safeParse(userInfo)
+    if(! isIPValid.success){
+        res.send("the input is not vlid");
+        return;
+    }
 
     //check the user is exist or not in the database
    let isRegistered =  await User.findOne({
@@ -21,7 +34,7 @@ async function registerUser(req,res,next){
     // create the actual user
     await User.create({
         userName: req.body.userName,
-        password: "hfdf"
+        password: req.body.password
     })
 
    
