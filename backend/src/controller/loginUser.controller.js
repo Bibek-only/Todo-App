@@ -21,10 +21,12 @@ async function loginUser(req,res,next){
     })
 
     if(! isUserExist){
-        console.log("no user is exist on the data base")
+        
         res.send("no user is exist on the data base");
         return
     }
+    const userId = isUserExist._id;
+    console.log(userId);
     res.send("user find sucesfully and you are logd in ")
 }
 

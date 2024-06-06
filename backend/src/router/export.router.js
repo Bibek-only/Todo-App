@@ -1,3 +1,3 @@
-import {user} from "./registerLoginUser.route.js"
+import {user} from "./registerLoginRemoveUser.route.js"
 
 export {user}
