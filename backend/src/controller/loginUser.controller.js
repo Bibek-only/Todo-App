@@ -1,5 +1,6 @@
 import {User} from "../model/exprort.model.js"
 import zod from "zod"
+let userName,password,ownerId;
 async function loginUser(req,res,next){
 
     let userInfo = req.body;
@@ -26,8 +27,12 @@ async function loginUser(req,res,next){
         return
     }
     const userId = isUserExist._id;
-    console.log(userId);
+   
+     userName = userInfo.userName;
+     password = userInfo.password;
+     ownerId = userId
     res.send("user find sucesfully and you are logd in ")
+    
 }
 
-export {loginUser}
+export {loginUser, userName,password,ownerId}

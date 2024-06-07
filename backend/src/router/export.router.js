@@ -1,3 +1,4 @@
 import {user} from "./registerLoginRemoveUser.route.js"
+import {todo} from "./todo.route.js"
 
-export {user}
+export {user, todo}
