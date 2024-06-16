@@ -5,7 +5,7 @@ import {Outlet} from "react-router-dom"
 const App = () => {
   return (
     <>
-      <div className="mainBody min-h-screen w-full bg-black text-white flex flex-col items-center">
+      <div className="mainBody min-h-screen w-full bg-black text-white flex flex-col items-center justify-center">
       <Navbar></Navbar>
       <Outlet></Outlet>
       </div>
